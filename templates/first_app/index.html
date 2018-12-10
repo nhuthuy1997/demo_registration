@@ -1,0 +1,21 @@
+{% extends "first_app/base.html" %}
+{% load static %}
+
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Welcome to the Djungle !</h1>
+      {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+        
+        {% if profile.profile_pic is None %}
+          <img src="{% static 'images/default.jpeg' %}"/>
+        {% else %}
+          <img src="..."/>
+        {% endif %}
+      {% else %}
+        <h2>Register or Login if you'd like to</h2>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
